@@ -1,7 +1,6 @@
 # Personal Portfolio
 
-This is a personal portfolio project built with Spring Boot, showcasing web development skills. The application follows the Model-View-Controller (MVC) architecture and is structured to allow for easy expansion and maintenance.
-
+This is a personal portfolio project built with Spring Boot
 ## Project Structure
 
 The project is organized as follows:
