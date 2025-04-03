@@ -1,0 +1,11 @@
+com/portfolio/controllers/ContactController.class
+com/portfolio/repositories/SkillRepository.class
+com/portfolio/models/Skill.class
+com/portfolio/PortfolioApplication.class
+com/portfolio/repositories/ProjectRepository.class
+com/portfolio/services/ProjectService.class
+com/portfolio/models/Project.class
+com/portfolio/models/Contact.class
+com/portfolio/controllers/ProjectController.class
+com/portfolio/controllers/HomeController.class
+com/portfolio/services/SkillService.class

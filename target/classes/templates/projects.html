@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+    <header th:replace="fragments/header.html"></header>
+    
+    <main>
+        <div class="container">
+            <h1 class="fade-in">My Projects</h1>
+            
+            <div class="projects-grid">
+                <!-- Dynamic Projects -->
+                <div th:each="project, iterStat : ${projects}" 
+                     class="project-card card-lift card-appear" 
+                     th:classappend="'card-delay-' + (${iterStat.index} + 1)">
+                    
+                    <!-- Top color bar - all blue -->
+                    <div class="card-color-bar blue-bar"></div>
+                    
+                    <div class="project-content">
+                        <h2 class="project-title">
+                            <span class="color-indicator blue-indicator"></span>
+                            <span th:text="${project.title}">Project Title</span>
+                        </h2>
+                        <p class="project-description" th:text="${project.description}">Project Description</p>
+                        <div class="project-tech-container">
+                            <p class="project-tech" th:text="${project.technologies}">Technologies Used</p>
+                        </div>
+                        <a class="project-link" th:href="@{/project-detail/{id}(id=${project.id})}">
+                            View Details
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+               
+                <div th:if="${#lists.size(projects) < 3}" class="project-card card-lift card-appear card-delay-4">
+                    <div class="card-color-bar blue-bar"></div>
+                    <div class="project-content">
+                        <h2 class="project-title">
+                            <span class="color-indicator blue-indicator"></span>
+                            Billing Dashboard
+                        </h2>
+                        <p class="project-description">Analytics dashboard with real-time data visualization and reporting tools.</p>
+                        <div class="project-tech-container">
+                            <p class="project-tech">Python, SQL, Tableau</p>
+                        </div>
+                        <a class="project-link" href="#">
+                            View Details
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div th:if="${#lists.size(projects) < 4}" class="project-card card-lift card-appear card-delay-5">
+                    <div class="card-color-bar blue-bar"></div>
+                    <div class="project-content">
+                        <h2 class="project-title">
+                            <span class="color-indicator blue-indicator"></span>
+                            Portfolio Website
+                        </h2>
+                        <p class="project-description">Modern portfolio website showcasing my work.</p>
+                        <div class="project-tech-container">
+                            <p class="project-tech">Spring Boot, JavaScript, HTML/CSS</p>
+                        </div>
+                        <a class="project-link" href="#">
+                            View Details
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div th:if="${#lists.size(projects) < 5}" class="project-card card-lift card-appear card-delay-6">
+                    <div class="card-color-bar blue-bar"></div>
+                    <div class="project-content">
+                        <h2 class="project-title">
+                            <span class="color-indicator blue-indicator"></span>
+                            Mobile App
+                        </h2>
+                        <p class="project-description">Cross-platform mobile application with offline capabilities and cloud sync.</p>
+                        <div class="project-tech-container">
+                            <p class="project-tech">Flutter, Firebase, Google Maps API</p>
+                        </div>
+                        <a class="project-link" href="#">
+                            View Details
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer th:replace="fragments/footer.html"></footer>
+    
+    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+    
+    <script src="/js/main.js"></script>
+</body>
+</html>

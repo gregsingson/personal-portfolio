@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${project.title}">Project Detail</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <main>
+        <h1 th:text="${project.title}">Project Title</h1>
+        <p th:text="${project.description}">Project description goes here.</p>
+        <h2>Technologies Used</h2>
+        <ul>
+            <li th:each="tech : ${project.technologies}" th:text="${tech}">Technology</li>
+        </ul>
+    </main>
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
